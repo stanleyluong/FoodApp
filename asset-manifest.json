@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/foodapp/static/css/main.ea65b9f1.chunk.css",
-    "main.js": "/foodapp/static/js/main.d46ddfc8.chunk.js",
-    "main.js.map": "/foodapp/static/js/main.d46ddfc8.chunk.js.map",
-    "runtime-main.js": "/foodapp/static/js/runtime-main.f97895e9.js",
-    "runtime-main.js.map": "/foodapp/static/js/runtime-main.f97895e9.js.map",
-    "static/js/2.7ace5ffa.chunk.js": "/foodapp/static/js/2.7ace5ffa.chunk.js",
-    "static/js/2.7ace5ffa.chunk.js.map": "/foodapp/static/js/2.7ace5ffa.chunk.js.map",
-    "index.html": "/foodapp/index.html",
-    "precache-manifest.4a573f2e6766c10ec40159fd6a120c2c.js": "/foodapp/precache-manifest.4a573f2e6766c10ec40159fd6a120c2c.js",
-    "service-worker.js": "/foodapp/service-worker.js",
-    "static/css/main.ea65b9f1.chunk.css.map": "/foodapp/static/css/main.ea65b9f1.chunk.css.map",
-    "static/js/2.7ace5ffa.chunk.js.LICENSE.txt": "/foodapp/static/js/2.7ace5ffa.chunk.js.LICENSE.txt",
-    "static/media/SearchBar.css": "/foodapp/static/media/background_search_mobile.5d0905e6.jpg"
+    "main.css": "/FoodApp/static/css/main.c5dbcbcd.chunk.css",
+    "main.js": "/FoodApp/static/js/main.859373af.chunk.js",
+    "main.js.map": "/FoodApp/static/js/main.859373af.chunk.js.map",
+    "runtime-main.js": "/FoodApp/static/js/runtime-main.c5cd9890.js",
+    "runtime-main.js.map": "/FoodApp/static/js/runtime-main.c5cd9890.js.map",
+    "static/js/2.7ace5ffa.chunk.js": "/FoodApp/static/js/2.7ace5ffa.chunk.js",
+    "static/js/2.7ace5ffa.chunk.js.map": "/FoodApp/static/js/2.7ace5ffa.chunk.js.map",
+    "index.html": "/FoodApp/index.html",
+    "precache-manifest.f23090df417e61d70590a119cb2e57cf.js": "/FoodApp/precache-manifest.f23090df417e61d70590a119cb2e57cf.js",
+    "service-worker.js": "/FoodApp/service-worker.js",
+    "static/css/main.c5dbcbcd.chunk.css.map": "/FoodApp/static/css/main.c5dbcbcd.chunk.css.map",
+    "static/js/2.7ace5ffa.chunk.js.LICENSE.txt": "/FoodApp/static/js/2.7ace5ffa.chunk.js.LICENSE.txt",
+    "static/media/SearchBar.css": "/FoodApp/static/media/background_search_mobile.5d0905e6.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f97895e9.js",
+    "static/js/runtime-main.c5cd9890.js",
     "static/js/2.7ace5ffa.chunk.js",
-    "static/css/main.ea65b9f1.chunk.css",
-    "static/js/main.d46ddfc8.chunk.js"
+    "static/css/main.c5dbcbcd.chunk.css",
+    "static/js/main.859373af.chunk.js"
   ]
 }
