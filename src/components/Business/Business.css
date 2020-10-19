@@ -23,22 +23,25 @@
   }
   
   .Business-information p {
+    margin: 0;
+    padding: 0;
     font-size: .88rem;
     font-weight: 300;
-    line-height: 1rem;
+    line-height: normal;
   }
   
   .Business-address {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
   }
   
   .Business-reviews {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: right;
+    display: block;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* text-align: right; */
+    margin: auto;
   }
   
   .Business-reviews h3 {
