@@ -7,7 +7,8 @@ class SearchBar extends React.Component {
         this.state = {
             term: '',
             location:'',
-            sortBy: 'best_match'
+            sortBy: 'best_match',
+            placeholder: 'Near...'
         }
         this.handleTermChange = this.handleTermChange.bind(this)
         this.handleLocationChange = this.handleLocationChange.bind(this)
@@ -16,7 +17,8 @@ class SearchBar extends React.Component {
         this.sortByOptions = {
             'Best Match': 'best_match',
             'Highest Rated': 'rating',
-            'Most Reviewed': 'review_count'
+            'Most Reviewed': 'review_count',
+            'Distance': 'distance'
         }
     }
     getSortByClass(sortByOption){
@@ -42,6 +44,7 @@ class SearchBar extends React.Component {
         })
     }
     handleSearch(event){
+        console.log(this.state.term, this.state.location, this.state.sortBy)
         this.props.searchYelp(this.state.term,this.state.location,this.state.sortBy)
         event.preventDefault()
     }
@@ -51,6 +54,7 @@ class SearchBar extends React.Component {
             return <li onClick={this.handleSortByChange.bind(this,sortByOptionValue)} className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue}>{sortByOption}</li>
         })
     }
+    
     render(){
         return(
             <div className="SearchBar">
@@ -61,19 +65,11 @@ class SearchBar extends React.Component {
                 </div>
                 <div className="SearchBar-fields">
                     <form onSubmit={this.handleSearch}>
-                        <input 
-                        onChange={this.handleTermChange} placeholder="Search Businesses" />
-                        <input 
-                        onChange={this.handleLocationChange} placeholder="Where?" />
-                        <button onClick={this.handleSearch} className="SearchBar-submit">
-                            Let's Go
-                        </button>
+                        <input onChange={this.handleTermChange} placeholder="Find..." />
+                        <input onChange={this.handleLocationChange} placeholder={this.props.placeholder} />
+                        <button onClick={this.handleSearch} className="SearchBar-submit">Let's Go</button>
                     </form>
-                    {/* <div className="Submit">
-                        
-                    </div> */}
                 </div>
-                
             </div>
         )
     }

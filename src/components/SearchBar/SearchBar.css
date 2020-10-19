@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     background-image: url('./background_search_desktop.jpg');
+    /* background-image: url('src/components/SearchBar/background_search_desktop.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
     height: 25rem;
