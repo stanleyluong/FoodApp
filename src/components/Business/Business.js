@@ -15,6 +15,7 @@ class Business extends React.Component {
                         <p>{this.props.business.location.address3}</p>
                         <p>{this.props.business.location.city} {this.props.business.location.state}</p>
                         <p>{this.props.business.location.zip_code}</p>
+                        <p>{Math.floor(this.props.business.distance)} meters away</p>
                     </div>
                     <div className="Business-reviews">
                         <h3>{this.props.business.categories[0].title}</h3>
