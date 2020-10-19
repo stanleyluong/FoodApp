@@ -61,6 +61,7 @@
   
   .SearchBar-submit {
     text-align: center;
+    /* justify-content: center; */
   }
   .Submit {
     display: flex;
@@ -69,11 +70,13 @@
   .SearchBar-submit {
     border-radius: 4px;
     padding: .72rem 1.7rem;
+    /* margin-left: .5rem; */
+    margin: 1rem;
     background-color: #cca353;
     color: #ffffff;
     font-weight: 600;
     transition: background-color .5s;
-    /* width: 33.333%; */
+    width: 21rem;
     /* display: block; */
     /* justify-content: center; */
   }
@@ -83,7 +86,7 @@
     background-color: #a7874b;
   }
   
-  @media only screen and (max-width: 560px) {
+  @media only screen and (max-width: 667px) {
     .SearchBar {
       background-image: url('./background_search_mobile.jpg');
       /* background-image: url('../../../public/background_search_mobile.jpg'); */
@@ -91,17 +94,28 @@
     }
   
     .SearchBar-sort-options ul {
-      margin-left: 2rem;
-      margin-right: 2rem;
+      /* margin-left: 1rem; */
+      margin-right: 1rem;
+      /* margin: 1rem; */
+    }
+
+    .SearchBar-sort-options li {
+      padding: .5rem;
     }
   
     .SearchBar-fields {
+      /* padding: 1rem; */
+      /* width: 300px; */
+      margin: 1rem;
       flex-direction: column;
       align-items: center;
     }
   
     .SearchBar-fields input {
-      margin-right: 0;
-      margin-bottom: .86rem;
+      /* margin-right: 0; */
+      width: 20rem;
+      margin: .5rem;
+      /* margin-bottom: .86rem; */
+
     }
   }
