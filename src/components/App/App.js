@@ -12,7 +12,8 @@ class App extends React.Component {
       latitude: 0,
       longitude: 0,
       placeholder: "Near...",
-      location: {}
+      location: {},
+      granted: false
     }
     this.searchYelp = this.searchYelp.bind(this)
   }
@@ -25,7 +26,8 @@ class App extends React.Component {
         console.log("Longitude is :", position.coords.longitude);
         self.setState({
           latitude: position.coords.latitude,
-          longitude: position.coords.longitude
+          longitude: position.coords.longitude,
+          granted: true
         })
         async function fetchLocation(){
           const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${self.state.latitude}&longitude=${self.state.longitude}&localityLanguage=en`)
@@ -45,22 +47,25 @@ class App extends React.Component {
     }
   }
   searchYelp(term,location,sortBy){
+    if(location===""){
+      if(this.state.granted){
+        console.log('searchgeo')
+        Yelp.searchGeo(term,this.state.latitude, this.state.longitude, sortBy).then(businesses=>{
+          this.setState({
+            businesses:businesses
+          })
+        })
+      } else {
+        alert('Allow Location or Enter Location')
+      }
+    }
     if(location!==""){
-      Yelp.search(term,location,sortBy).then(businesses=>{
-        console.log(this)
-        this.setState({
-          businesses: businesses
+        Yelp.search(term,location,sortBy).then(businesses=>{
+          this.setState({
+            businesses:businesses
+          })
         })
-      })
-    }
-    if(location==="" && "geolocation" in navigator){
-      console.log(this.state.latitude, 'lat',this.state.longitude,'longitude')
-      Yelp.searchGeo(term, this.state.latitude, this.state.longitude, sortBy).then(businesses=>{
-        this.setState({
-          businesses: businesses
-        })
-      })
-    }
+      }
   }
   render(){
     return(
