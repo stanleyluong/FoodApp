@@ -34,7 +34,7 @@ const Yelp = {
         })
     },
     searchGeo(term, latitude, longitude, sortBy){
-        return fetch(`http://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${latitude}&longitude=${longitude}&sort_by=${sortBy}&limit=50`,{
+        return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${latitude}&longitude=${longitude}&sort_by=${sortBy}&limit=50`,{
             headers: {
                 Authorization: `Bearer ${apiKey}`
             }
