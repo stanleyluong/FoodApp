@@ -4,11 +4,11 @@ class Business extends React.Component {
     render(){
         let formattedAddress = [this.props.business.location.address1,this.props.business.location.address2,this.props.business.location.address3,this.props.business.location.city,this.props.business.location.state,this.props.business.location.zip_code].filter(address=>{return address!==""}).join(' ').split(' ').join('+')
         // console.log(formattedAddress,'formatted')
-        
+        console.log(this.props.business)
         return (
             <div className="Business">
                 <div className="image-container">
-                    <img src={this.props.business.image_url} alt=''/>
+                    <a href={this.props.business.url} target="_blank" rel="noopener noreferrer"><img src={this.props.business.image_url} alt='image'/></a>
                 </div>
                 <h2>{this.props.business.name}</h2>
                 <div className="Business-information">
