@@ -1,3 +1,6 @@
+@media only screen and (min-width: 400px){
+  
+}
 .Business {
     display: flex;
     flex-direction: column;
@@ -54,3 +57,5 @@
     font-size: 2rem;
     line-height: 0rem;
   }
+
+  
