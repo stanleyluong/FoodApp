@@ -21,6 +21,23 @@ class SearchBar extends React.Component {
             'Distance': 'distance'
         }
     }
+    componentDidMount(){
+        if(this.props.location==="Current Location"){
+            var loc = document.getElementById('loc');
+            
+            loc.addEventListener('focus',
+                function () {
+                    this.classList.add('placeholderred');
+                }
+            );
+
+            loc.addEventListener('blur',
+                function () {
+                    this.classList.remove('placeholderred');
+                }
+            );
+        }
+    }
     getSortByClass(sortByOption){
         if(this.state.sortBy===sortByOption){
             return 'active'
@@ -54,10 +71,13 @@ class SearchBar extends React.Component {
             return <li onClick={this.handleSortByChange.bind(this,sortByOptionValue)} className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue}>{sortByOption}</li>
         })
     }
-    
+    // handleAutoComplete(){
+
+    // }
     render(){
         return(
-            <div className="SearchBar">
+            
+            <div className="SearchBar" id="searchbar">
                 <div className="SearchBar-sort-options">
                     <ul>
                     {this.renderSortByOptions()}
@@ -66,7 +86,7 @@ class SearchBar extends React.Component {
                 <div className="SearchBar-fields">
                     <form onSubmit={this.handleSearch}>
                         <input onChange={this.handleTermChange} placeholder="Find..." />
-                        <input onChange={this.handleLocationChange} placeholder={this.props.placeholder} />
+                        <input id="loc" onChange={this.handleLocationChange} placeholder={this.props.placeholder} />
                         <button onClick={this.handleSearch} className="SearchBar-submit">Let's Go</button>
                     </form>
                 </div>

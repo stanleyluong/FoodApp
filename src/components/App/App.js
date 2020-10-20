@@ -20,8 +20,12 @@ class App extends React.Component {
   componentDidMount() {
     if ("geolocation" in navigator) {
       console.log("Available");
+      this.setState({
+        placeholder: "Loading Location..."
+      })
       const self = this;
       navigator.geolocation.getCurrentPosition(function(position) {
+        
         console.log("Latitude is :", position.coords.latitude);
         console.log("Longitude is :", position.coords.longitude);
         self.setState({
@@ -71,8 +75,10 @@ class App extends React.Component {
     return(
       <div className="App">
         <h1>FoodApp</h1>
+        
         <SearchBar searchYelp={this.searchYelp} placeholder={this.state.placeholder}/>
         <BusinessList businesses={this.state.businesses}/>
+       
       </div>
     )
   }

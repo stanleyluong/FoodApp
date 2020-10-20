@@ -5,7 +5,7 @@
     background-image: url('./background_search_desktop.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 25rem;
+    height: 40rem;
   }
   
   .SearchBar-sort-options ul {
@@ -23,7 +23,7 @@
     line-height: 1.13;
     text-align: center;
     font-weight: 600;
-    font-size: .83rem;
+    font-size: 1.23rem;
     transition: color .25s;
   }
   
@@ -124,3 +124,7 @@
     }
 
   }
+
+  input.placeholderred::-webkit-input-placeholder {
+    color: red;
+ }

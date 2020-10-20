@@ -12,6 +12,8 @@ const Yelp = {
             if(jsonResponse.businesses){
                 return jsonResponse.businesses.map(business=>{
                         console.log(business)
+                        // document.getElementById('1').scrollIntoView(false)
+
                         return {
                             id: business.id,
                             alias: business.alias,
@@ -32,6 +34,7 @@ const Yelp = {
                 })
             }
         })
+        
     },
     searchGeo(term, latitude, longitude, sortBy){
         return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${latitude}&longitude=${longitude}&sort_by=${sortBy}&limit=50`,{

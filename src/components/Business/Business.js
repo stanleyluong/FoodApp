@@ -5,7 +5,12 @@ class Business extends React.Component {
         let formattedAddress = [this.props.business.location.address1,this.props.business.location.address2,this.props.business.location.address3,this.props.business.location.city,this.props.business.location.state,this.props.business.location.zip_code].filter(address=>{return address!==""}).join(' ').split(' ').join('+')
         // console.log(formattedAddress,'formatted')
         console.log(this.props.business)
+        // document.getElementById('searchbar').scrollIntoView(false)
+        // let searchbar = document.getElementById('1')
+        // console.log(searchbar)
+        // searchbar.scrollIntoView(false)
         return (
+            
             <div className="Business">
                 <div className="image-container">
                     <a href={this.props.business.url} target="_blank" rel="noopener noreferrer"><img src={this.props.business.image_url} alt='uh oh'/></a>
