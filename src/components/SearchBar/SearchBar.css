@@ -3,12 +3,14 @@
     flex-direction: column;
     justify-content: center;
     background-image: url('./background_search_desktop.jpg');
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    height: 46.5rem;
+    background-size: cover;
+    /* background-repeat: repeat; */
+    height: 45rem;
     /* height: 100%; */
     /* width: 94rem; */
   }
+
+  
   
   .SearchBar-sort-options ul {
     display: flex;
@@ -30,13 +32,14 @@
   }
   
   .SearchBar-sort-options li:hover {
-    color: #d4cfcf;
+    color: #cfd4d0;
   }
   
   .SearchBar-sort-options li.active,
   .SearchBar-sort-options li.active:hover {
     border-bottom: 1px solid #f0c36c;
-    color: #f0c36c;
+    color: gold;
+    text-shadow: 2px 2px 4px #000000
   }
   
   .SearchBar-fields {
@@ -90,8 +93,6 @@
   @media only screen and (max-width: 667px) {
     .SearchBar {
       background-image: url('./background_search_mobile.jpg');
-      /* background-image: url('../../../public/background_search_mobile.jpg'); */
-
     }
   
     .SearchBar-sort-options ul {
@@ -130,3 +131,60 @@
   input.placeholderred::-webkit-input-placeholder {
     color: red;
  }
+ @media only screen and (max-height: 1366px){
+  .SearchBar {
+    height: 1366px;
+  }
+}
+ @media only screen and (max-height: 1024px){
+  .SearchBar {
+    height: 1024px;
+  }
+}
+ @media only screen and (max-height: 900px){
+  .SearchBar {
+    height: 900px;
+  }
+}
+@media only screen and (max-height: 823px){
+  .SearchBar {
+    height: 823px;
+  }
+}
+@media only screen and (max-height: 760px){
+  .SearchBar {
+    height: 760px;
+  }
+}
+@media only screen and (max-height: 736px){
+  .SearchBar {
+    height: 736px;
+  }
+}
+@media only screen and (max-height: 731px){
+  .SearchBar {
+    height: 731px;
+  }
+}
+@media only screen and (max-height: 667px){
+  .SearchBar {
+    height: 677px;
+  }
+}
+@media only screen and (max-height: 640px){
+  .SearchBar {
+    height: 640px;
+  }
+}
+@media only screen and (max-height: 568px){
+  .SearchBar {
+    height: 568px;
+  }
+}
+
+
+
+
+
+
+

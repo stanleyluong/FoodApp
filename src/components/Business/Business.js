@@ -26,6 +26,10 @@ class Business extends React.Component {
                             <p>{this.props.business.location.zip_code}</p>
                         </a>
                             <p>{Math.floor(this.props.business.distance)} meters away</p>
+                            <p>{this.props.business.display_phone}</p>
+                            <p>{this.props.business.is_closed ? "Closed" : "Open"}</p>
+                            <p>{this.props.business.price}</p>
+                            
                     </div>
                     <div className="Business-reviews">
                         <h3>{this.props.business.categories[0].title}</h3>
