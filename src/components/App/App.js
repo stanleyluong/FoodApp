@@ -52,16 +52,8 @@ class App extends React.Component {
   }
 
   componentDidUpdate(){
-    let titleHeight = document.getElementById('title').offsetHeight
-    console.log('title height',titleHeight)
-    let searchBarHeight = document.getElementById('searchbar').offsetHeight
-    console.log('search bar height',searchBarHeight)
-    let totalheight = titleHeight+searchBarHeight
-    console.log('totalheight',totalheight)
-    window.scrollBy(0,totalheight)
-    console.log('after scroll')
-    // let appHeight = document.getElementById('app').clientHeight
-    // window.scrollBy(0,appHeight)
+    let searchBarHeight = document.getElementById('searchbar').clientHeight
+    window.scrollBy(0,searchBarHeight)
   }
 
   searchYelp(term,location,sortBy){
@@ -91,7 +83,6 @@ class App extends React.Component {
   render(){
     return(
       <div className="App" id="app">
-        <h1 id="title">FoodApp</h1>
         
         <SearchBar searchYelp={this.searchYelp} placeholder={this.state.placeholder}/>
         <BusinessList businesses={this.state.businesses}/>

@@ -3,9 +3,11 @@
     flex-direction: column;
     justify-content: center;
     background-image: url('./background_search_desktop.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 40rem;
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    height: 46.5rem;
+    /* height: 100%; */
+    width: 94rem;
   }
   
   .SearchBar-sort-options ul {

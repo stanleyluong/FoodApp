@@ -79,6 +79,7 @@ class SearchBar extends React.Component {
         return(
             
             <div className="SearchBar" id="searchbar">
+                {/* <h1 id="title">FoodApp</h1> */}
                 <div className="SearchBar-sort-options">
                     <ul>
                     {this.renderSortByOptions()}
@@ -88,7 +89,7 @@ class SearchBar extends React.Component {
                     <form onSubmit={this.handleSearch}>
                         <input onChange={this.handleTermChange} placeholder="Find..." />
                         <input id="loc" onChange={this.handleLocationChange} placeholder={this.props.placeholder} />
-                        <button onClick={this.handleSearch} className="SearchBar-submit">Let's Go</button>
+                        <button onClick={this.handleSearch} className="SearchBar-submit">Search</button>
                     </form>
                 </div>
             </div>
