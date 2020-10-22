@@ -37,6 +37,21 @@ const Yelp = {
         
     },
     searchGeo(term, latitude, longitude, sortBy){
+        // let searchBar = document.getElementById('searchbar')
+        // searchBar.style.height = '5rem'
+        // console.log('before scroll')
+        // function scroll(){
+        //     window.scrollBy(0,1000)
+        // }
+        // let titleHeight = document.getElementById('title').clientHeight
+        // console.log('title height',titleHeight)
+        // let searchBarHeight = document.getElementById('searchbar').clientHeight
+        // console.log('search bar height',searchBarHeight)
+        // let totalheight = titleHeight+searchBarHeight
+        // console.log('totalheight',totalheight)
+        // setTimeout(function(){window.scrollBy(0,totalheight)},1000)
+        // console.log('after scroll')
+        // document.getElementById('searchbar').style = searchBarStyles
         return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${latitude}&longitude=${longitude}&sort_by=${sortBy}&limit=50`,{
             headers: {
                 Authorization: `Bearer ${apiKey}`
@@ -65,6 +80,7 @@ const Yelp = {
                     }
                 })
             }
+            // callBack()
         })
     }
     

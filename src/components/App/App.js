@@ -50,7 +50,22 @@ class App extends React.Component {
       console.log("Not Available");
     }
   }
+
+  componentDidUpdate(){
+    let titleHeight = document.getElementById('title').offsetHeight
+    console.log('title height',titleHeight)
+    let searchBarHeight = document.getElementById('searchbar').offsetHeight
+    console.log('search bar height',searchBarHeight)
+    let totalheight = titleHeight+searchBarHeight
+    console.log('totalheight',totalheight)
+    window.scrollBy(0,totalheight)
+    console.log('after scroll')
+    // let appHeight = document.getElementById('app').clientHeight
+    // window.scrollBy(0,appHeight)
+  }
+
   searchYelp(term,location,sortBy){
+    
     if(location===""){
       if(this.state.granted){
         console.log('searchgeo')
@@ -64,17 +79,19 @@ class App extends React.Component {
       }
     }
     if(location!==""){
-        Yelp.search(term,location,sortBy).then(businesses=>{
-          this.setState({
-            businesses:businesses
-          })
+      Yelp.search(term,location,sortBy).then(businesses=>{
+        this.setState({
+          businesses:businesses
         })
-      }
+      })
+    }
+    
+    
   }
   render(){
     return(
-      <div className="App">
-        <h1>FoodApp</h1>
+      <div className="App" id="app">
+        <h1 id="title">FoodApp</h1>
         
         <SearchBar searchYelp={this.searchYelp} placeholder={this.state.placeholder}/>
         <BusinessList businesses={this.state.businesses}/>
