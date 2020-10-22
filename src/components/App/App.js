@@ -52,9 +52,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate(){
-    // let searchBarHeight = document.getElementById('searchbar').clientHeight
-    // window.scrollBy(0,searchBarHeight)
-    document.getElementById('BusinessList').scrollIntoView()
+    document.getElementById('BusinessList').scrollIntoView({behavior: "smooth"})
   }
 
   searchYelp(term,location,sortBy){
