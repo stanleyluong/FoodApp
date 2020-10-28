@@ -56,7 +56,6 @@ class App extends React.Component {
   }
 
   searchYelp(term,location,sortBy){
-    
     if(location===""){
       if(this.state.granted){
         console.log('searchgeo')
@@ -70,14 +69,13 @@ class App extends React.Component {
       }
     }
     if(location!==""){
+      console.log('searchyelp')
       Yelp.search(term,location,sortBy).then(businesses=>{
         this.setState({
           businesses:businesses
         })
       })
     }
-    
-    
   }
   render(){
     return(
