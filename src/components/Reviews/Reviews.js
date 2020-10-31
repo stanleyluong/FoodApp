@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Yelp from '../../util/Yelp'
 import Review from '../Review/Review'
 
