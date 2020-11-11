@@ -8,11 +8,10 @@ class Business extends React.Component {
         this.state = {
             showReviews: false
         }
-        this.handleClick  = this.handleClick.bind(this)
     }
-    handleClick(){
+    toggleReviews = () => {
         this.setState({
-            showReviews: true
+            showReviews: !this.state.showReviews,
         })
     }
     render(){
@@ -45,8 +44,12 @@ class Business extends React.Component {
                     </div>
                     
                 </div>
-                        <button onClick={this.handleClick}>{this.state.showReviews ? <Reviews id={this.props.business.id}/> : this.props.business.review_count + " Reviews"}
+                        <button onClick={this.toggleReviews}>
+                            {this.state.showReviews ? 'Hide' : 'Show'} {this.props.business.review_count + " Reviews"}
                         </button>
+                        {this.state.showReviews && (
+                            <Reviews id={this.props.business.id} />
+                        )}
             </div>
         )
     }
