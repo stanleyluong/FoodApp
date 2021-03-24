@@ -44,12 +44,12 @@ class Business extends React.Component {
                     </div>
                     
                 </div>
-                        <button onClick={this.toggleReviews}>
+                        {/* <button onClick={this.toggleReviews}>
                             {this.state.showReviews ? 'Hide' : 'Show'} {this.props.business.review_count + " Reviews"}
                         </button>
                         {this.state.showReviews && (
                             <Reviews id={this.props.business.id} />
-                        )}
+                        )} */}
             </div>
         )
     }
