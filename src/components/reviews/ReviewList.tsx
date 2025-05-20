@@ -8,16 +8,17 @@ import ReviewCard from './ReviewCard';
 interface ReviewListProps {
   reviews: Review[];
   businessName: string;
+  businessUrl: string;
 }
 
-export default function ReviewList({ reviews, businessName }: ReviewListProps) {
+export default function ReviewList({ reviews, businessName, businessUrl }: ReviewListProps) {
   return (
     <div className="mt-8">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold tracking-tight mb-4 md:mb-0">
           Reviews ({reviews.length})
         </h2>
-        <AddReviewForm businessName={businessName} />
+        <AddReviewForm businessName={businessName} businessUrl={businessUrl} />
       </div>
       <Separator className="mb-6" />
       {reviews.length > 0 ? (

@@ -29,7 +29,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
       headers: {
         Authorization: `Bearer ${YELP_API_KEY}`,
       },
-      // params: { limit: 3, sort_by: 'yelp_sort' } // Example params if needed
+      params: { limit: 5, sort_by: 'yelp_sort' } // Request up to 5 reviews, sorted by Yelp's default sort
     });
     
     // The response.data.reviews should be an array of review objects from Yelp

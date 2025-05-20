@@ -209,7 +209,7 @@ export default function BusinessDetailPage() {
             </TabsContent>
 
             <TabsContent value="reviews" className="pt-2">
-              <ReviewList reviews={reviews} businessName={business.name} />
+              <ReviewList reviews={reviews} businessName={business.name} businessUrl={business.url} />
             </TabsContent>
 
             <TabsContent value="photos" className="pt-2">
@@ -237,18 +237,36 @@ export default function BusinessDetailPage() {
               <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                 {business.location?.display_address?.join('\n') || 'Address not available'}
               </p>
-              {/* Map Placeholder */}
-              <div className="h-48 bg-muted rounded-md flex items-center justify-center text-sm text-muted-foreground my-3">
-                (Map Placeholder)
-              </div>
+              {business.coordinates && (
+                <div className="h-60 bg-muted rounded-md overflow-hidden my-3 shadow-inner">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&q=${business.coordinates.latitude},${business.coordinates.longitude}&zoom=15`}
+                  >
+                  </iframe>
+                </div>
+              )}
               {business.display_phone && 
                 <p className="text-muted-foreground flex items-center">
                   <Phone className="mr-2.5 h-4 w-4 flex-shrink-0" /> {business.display_phone}
                 </p>
               }
-              <Button asChild className="w-full mt-3">
-                <a href={`https://www.yelp.com/map/${business.alias}`} target="_blank" rel="noopener noreferrer">Get Directions (on Yelp)</a>
-              </Button>
+              {business.coordinates && (
+                <Button asChild className="w-full mt-3">
+                  <a 
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${business.coordinates.latitude},${business.coordinates.longitude}`}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Get Directions (on Google Maps)
+                  </a>
+                </Button>
+              )}
             </CardContent>
           </Card>
         </aside>
