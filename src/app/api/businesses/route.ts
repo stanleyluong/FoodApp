@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
-const NEXT_PUBLIC_YELP_API_KEY = process.env.NEXT_PUBLIC_YELP_API_KEY;
+const YELP_API_KEY = process.env.YELP_API_KEY;
 const NEXT_PUBLIC_YELP_API_URL = 'https://api.yelp.com/v3/businesses/search';
 
 export async function GET(request: NextRequest) {
-  if (!NEXT_PUBLIC_YELP_API_KEY) {
+  if (!YELP_API_KEY) {
     console.error('Yelp API key is not configured.');
     return NextResponse.json(
       { error: 'API key not configured. Please check server logs.' }, 
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
 
     const response = await axios.get(NEXT_PUBLIC_YELP_API_URL, {
       headers: {
-        Authorization: `Bearer ${NEXT_PUBLIC_YELP_API_KEY}`,
+        Authorization: `Bearer ${YELP_API_KEY}`,
       },
       params: params,
     });
