@@ -18,7 +18,7 @@ export default function ReviewList({ reviews, businessName, businessUrl }: Revie
         <h2 className="text-2xl font-semibold tracking-tight mb-4 md:mb-0">
           Reviews ({reviews.length})
         </h2>
-        <AddReviewForm businessName={businessName} businessUrl={businessUrl} />
+        <AddReviewForm businessUrl={businessUrl} />
       </div>
       <Separator className="mb-6" />
       {reviews.length > 0 ? (
