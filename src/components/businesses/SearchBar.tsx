@@ -13,7 +13,6 @@ interface SearchBarProps {
 export default function SearchBar({ onSearch, initialLocation }: SearchBarProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [location, setLocation] = useState(initialLocation || '');
-  const [category, setCategory] = useState('all');
 
   useEffect(() => {
     if (initialLocation) {
@@ -27,7 +26,7 @@ export default function SearchBar({ onSearch, initialLocation }: SearchBarProps)
       alert('Please enter a location to search.');
       return;
     }
-    onSearch(searchTerm, location, category);
+    onSearch(searchTerm, location, 'all');
   };
 
   // const clearSearch = () => { // Commented out as it's unused
