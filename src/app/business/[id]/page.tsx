@@ -46,7 +46,7 @@ export default function BusinessDetailPage() {
     try {
       const [businessRes, reviewsRes] = await Promise.all([
         fetch(`/api/businesses/${id}`),
-        fetch(`/api/businesses/${id}/reviews`)
+        fetch(`/api/business-reviews?id=${id}`)
       ]);
 
       if (!businessRes.ok) {

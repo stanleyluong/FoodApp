@@ -5,11 +5,14 @@ const YELP_API_KEY = process.env.YELP_API_KEY;
 
 const YELP_API_URL_DETAIL_BASE = 'https://api.yelp.com/v3/businesses/'; // No /search
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const businessId = params.id;
+export async function GET(request: NextRequest) {
+  // Manually parse businessId from the URL
+  const url = new URL(request.url);
+  const segments = url.pathname.split('/');
+  // Assuming path structure /api/businesses/[id]
+  // segments will be like ['', 'api', 'businesses', 'business_id_value']
+  // So, businessId is at index segments.length - 1
+  const businessId = segments.length > 3 ? segments[segments.length - 1] : null; 
 
   if (!YELP_API_KEY) {
     console.error('Yelp API key is not configured for detail view.');
