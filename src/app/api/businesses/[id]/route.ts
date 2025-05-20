@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
-const YELP_API_KEY = process.env.YELP_API_KEY;
+const NEXT_PUBLIC_YELP_API_KEY = process.env.NEXT_PUBLIC_YELP_API_KEY;
 
-const YELP_API_URL_DETAIL_BASE = 'https://api.yelp.com/v3/businesses/'; // No /search
+const NEXT_PUBLIC_YELP_API_URL_DETAIL_BASE = 'https://api.yelp.com/v3/businesses/'; // No /search
 
 export async function GET(request: NextRequest) {
   // Manually parse businessId from the URL
@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   // So, businessId is at index segments.length - 1
   const businessId = segments.length > 3 ? segments[segments.length - 1] : null; 
 
-  if (!YELP_API_KEY) {
+  if (!NEXT_PUBLIC_YELP_API_KEY) {
     console.error('Yelp API key is not configured for detail view.');
     return NextResponse.json(
       { error: 'API key not configured. Please check server logs.' }, 
@@ -26,12 +26,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Business ID is required' }, { status: 400 });
   }
 
-  const YELP_BUSINESS_DETAIL_URL = `${YELP_API_URL_DETAIL_BASE}${businessId}`;
+  const YELP_BUSINESS_DETAIL_URL = `${NEXT_PUBLIC_YELP_API_URL_DETAIL_BASE}${businessId}`;
 
   try {
     const response = await axios.get(YELP_BUSINESS_DETAIL_URL, {
       headers: {
-        Authorization: `Bearer ${YELP_API_KEY}`,
+        Authorization: `Bearer ${NEXT_PUBLIC_YELP_API_KEY}`,
       },
     });
     

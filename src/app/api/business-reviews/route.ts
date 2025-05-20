@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
-const YELP_API_KEY = process.env.YELP_API_KEY;
-const YELP_API_URL_BASE = 'https://api.yelp.com/v3/businesses';
+const NEXT_PUBLIC_YELP_API_KEY = process.env.NEXT_PUBLIC_YELP_API_KEY;
+const NEXT_PUBLIC_YELP_API_URL_BASE = 'https://api.yelp.com/v3/businesses';
 
 export async function GET(request: NextRequest) {
   const businessId = request.nextUrl.searchParams.get('id');
 
-  if (!YELP_API_KEY) {
+  if (!NEXT_PUBLIC_YELP_API_KEY) {
     console.error('Yelp API key is not configured for reviews.');
     return NextResponse.json(
       { error: 'API key not configured. Please check server logs.' }, 
@@ -22,12 +22,12 @@ export async function GET(request: NextRequest) {
   // Yelp API for reviews. Note: sometimes it might be paginated or limited to e.g. 3 reviews.
   // https://docs.developer.yelp.com/reference/v3_business_reviews
   // It also supports a `locale` parameter.
-  const YELP_REVIEWS_URL = `${YELP_API_URL_BASE}/${businessId}/reviews`;
+  const YELP_REVIEWS_URL = `${NEXT_PUBLIC_YELP_API_URL_BASE}/${businessId}/reviews`;
 
   try {
     const response = await axios.get(YELP_REVIEWS_URL, {
       headers: {
-        Authorization: `Bearer ${YELP_API_KEY}`,
+        Authorization: `Bearer ${NEXT_PUBLIC_YELP_API_KEY}`,
       },
       params: { limit: 5, sort_by: 'yelp_sort' } // Request up to 5 reviews, sorted by Yelp's default sort
     });
