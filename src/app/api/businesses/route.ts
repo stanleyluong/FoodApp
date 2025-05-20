@@ -49,11 +49,31 @@ export async function GET(request: NextRequest) {
     // For now, let's return the businesses array directly from Yelp's response
     return NextResponse.json(response.data.businesses);
 
-  } catch (error: any) {
-    console.error('Error fetching from Yelp API:', error.response?.data || error.message);
+  } catch (error: unknown) {
+    let errorMessage = 'Failed to fetch data from Yelp API.';
+    let errorCode = 'UNKNOWN_ERROR';
+    let errorStatus = 500;
+    let errorDetailMessage: string | undefined = undefined;
+
+    if (axios.isAxiosError(error)) {
+      console.error('Error fetching from Yelp API:', error.response?.data || error.message);
+      const yelpError = error.response?.data as { error?: { code?: string, description?: string } } | undefined;
+      errorMessage = yelpError?.error?.description || error.message || errorMessage;
+      errorCode = yelpError?.error?.code || errorCode;
+      errorStatus = error.response?.status || errorStatus;
+      errorDetailMessage = yelpError?.error?.description;
+    } else if (error instanceof Error) {
+      console.error('Error fetching from Yelp API:', error.message);
+      errorMessage = error.message;
+      errorDetailMessage = error.message;
+    } else {
+      console.error('Unknown error fetching from Yelp API:', error);
+      // No specific detail message for a completely unknown error structure
+    }
+
     return NextResponse.json(
-      { error: 'Failed to fetch data from Yelp API.', details: error.response?.data?.error?.description || error.message }, 
-      { status: error.response?.status || 500 }
+      { error: errorMessage, code: errorCode, details: errorDetailMessage }, 
+      { status: errorStatus }
     );
   }
 } 

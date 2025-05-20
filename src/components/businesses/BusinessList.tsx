@@ -58,9 +58,13 @@ export default function BusinessList() {
       }
       const data: Business[] = await response.json();
       setBusinesses(data);
-    } catch (e: any) {
+    } catch (e: unknown) {
       console.error("Failed to fetch businesses:", e);
-      setError(e.message || "An unexpected error occurred.");
+      if (e instanceof Error) {
+        setError(e.message || "An unexpected error occurred.");
+      } else {
+        setError("An unexpected error occurred while fetching businesses.");
+      }
       setBusinesses([]);
     } finally {
       setIsLoading(false);
@@ -152,7 +156,7 @@ export default function BusinessList() {
       return () => clearTimeout(timer);
     }
 
-  }, [searchParams, category, fetchBusinesses, location, searchTerm]); // location and searchTerm are key dependencies
+  }, [searchParams, category, fetchBusinesses, location, searchTerm, businesses.length]); // Added businesses.length back
 
   const handleSearch = (newSearchTerm: string, newLocation: string, newCategory: string) => {
     setSearchTerm(newSearchTerm);

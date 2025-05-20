@@ -35,15 +35,26 @@ export async function GET(
     // The response.data should be the detailed business object from Yelp
     return NextResponse.json(response.data);
 
-  } catch (error: any) {
-    console.error(`Error fetching details for business ${businessId} from Yelp API:`, error.response?.data || error.message);
-    // Check if Yelp returned a specific error structure
-    const yelpError = error.response?.data?.error;
-    const errorMessage = yelpError?.description || 'Failed to fetch business details from Yelp API.';
-    const errorStatus = error.response?.status || 500;
+  } catch (error: unknown) {
+    let errorMessage = 'Failed to fetch business details from Yelp API.';
+    let errorCode = 'UNKNOWN_ERROR';
+    let errorStatus = 500;
+
+    if (axios.isAxiosError(error)) {
+      console.error(`Error fetching details for business ${businessId} from Yelp API:`, error.response?.data || error.message);
+      const yelpError = error.response?.data?.error;
+      errorMessage = yelpError?.description || error.message || errorMessage;
+      errorCode = yelpError?.code || errorCode;
+      errorStatus = error.response?.status || errorStatus;
+    } else if (error instanceof Error) {
+      console.error(`Error fetching details for business ${businessId} from Yelp API:`, error.message);
+      errorMessage = error.message;
+    } else {
+      console.error(`Unknown error fetching details for business ${businessId} from Yelp API:`, error);
+    }
 
     return NextResponse.json(
-      { error: errorMessage, code: yelpError?.code }, 
+      { error: errorMessage, code: errorCode }, 
       { status: errorStatus }
     );
   }

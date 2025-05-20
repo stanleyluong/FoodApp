@@ -30,11 +30,11 @@ export default function SearchBar({ onSearch, initialLocation }: SearchBarProps)
     onSearch(searchTerm, location, category);
   };
 
-  const clearSearch = () => {
-    setSearchTerm('');
-    setCategory('all');
-    onSearch('', location, 'all');
-  };
+  // const clearSearch = () => { // Commented out as it's unused
+  //   setSearchTerm('');
+  //   setCategory('all');
+  //   onSearch('', location, 'all');
+  // };
 
   return (
     <form onSubmit={handleSearch} className="p-6 bg-card border rounded-lg shadow-lg mb-8">

@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 
 interface AddReviewFormProps {
-  businessName: string; // Still useful for context, though not used in the link text directly
+  // businessName: string; // Removed as it's not used
   businessUrl: string;
 }
 
-export default function AddReviewForm({ businessName, businessUrl }: AddReviewFormProps) {
+export default function AddReviewForm({ /* businessName, */ businessUrl }: AddReviewFormProps) {
   if (!businessUrl) {
     // Don't render the button if the URL isn't available for some reason
     return null;
