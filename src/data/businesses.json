@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "name": "The Gourmet Place",
+    "category": "Restaurant",
+    "cuisine": ["Italian", "Pizza"],
+    "address": "123 Main St, Anytown, USA",
+    "city": "Anytown",
+    "rating": 4.5,
+    "priceRange": "$$",
+    "imageUrl": "https://placehold.co/600x400/EBD8C3/7F6651?text=Gourmet+Place",
+    "hours": {
+      "Mon": "11 AM - 10 PM",
+      "Tue": "11 AM - 10 PM",
+      "Wed": "11 AM - 10 PM",
+      "Thu": "11 AM - 10 PM",
+      "Fri": "11 AM - 11 PM",
+      "Sat": "10 AM - 11 PM",
+      "Sun": "10 AM - 9 PM"
+    },
+    "amenities": ["WiFi", "Outdoor Seating", "Takes Reservations"],
+    "description": "A cozy spot for authentic Italian dishes and wood-fired pizzas."
+  },
+  {
+    "id": "2",
+    "name": "Morning Brew Cafe",
+    "category": "Cafe",
+    "cuisine": ["Coffee", "Pastries", "Sandwiches"],
+    "address": "456 Oak Ave, Anytown, USA",
+    "city": "Anytown",
+    "rating": 4.2,
+    "priceRange": "$",
+    "imageUrl": "https://placehold.co/600x400/E4D4C8/7897AB?text=Morning+Brew",
+    "hours": {
+      "Mon-Fri": "7 AM - 6 PM",
+      "Sat-Sun": "8 AM - 5 PM"
+    },
+    "amenities": ["WiFi", "Vegan Options", "Pet Friendly"],
+    "description": "Your neighborhood cafe for the best coffee, fresh pastries, and light bites."
+  },
+  {
+    "id": "3",
+    "name": "Sushi Heaven",
+    "category": "Restaurant",
+    "cuisine": ["Japanese", "Sushi"],
+    "address": "789 Pine Ln, Anytown, USA",
+    "city": "Anytown",
+    "rating": 4.8,
+    "priceRange": "$$$",
+    "imageUrl": "https://placehold.co/600x400/D7E5CA/A3BFA8?text=Sushi+Heaven",
+    "hours": {
+      "Tue-Sun": "5 PM - 10 PM",
+      "Mon": "Closed"
+    },
+    "amenities": ["Fresh Fish Daily", "Omakase Available", "Sake Bar"],
+    "description": "Exquisite sushi and Japanese cuisine in an elegant setting."
+  }
+] 

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "r1",
+    "businessId": "1",
+    "userId": "u1",
+    "username": "FoodieFan",
+    "userAvatarUrl": "https://placehold.co/100x100/7F6651/EBD8C3?text=FF",
+    "rating": 5,
+    "text": "Absolutely loved the pizza! Best I've had in Anytown. Cozy atmosphere too.",
+    "date": "2023-10-15"
+  },
+  {
+    "id": "r2",
+    "businessId": "1",
+    "userId": "u2",
+    "username": "PastaLover",
+    "userAvatarUrl": "https://placehold.co/100x100/A3BFA8/D7E5CA?text=PL",
+    "rating": 4,
+    "text": "Great pasta dishes, though the service was a bit slow on a Friday night.",
+    "date": "2023-10-12"
+  },
+  {
+    "id": "r3",
+    "businessId": "2",
+    "userId": "u3",
+    "username": "CoffeeFiend",
+    "userAvatarUrl": "https://placehold.co/100x100/7897AB/E4D4C8?text=CF",
+    "rating": 4,
+    "text": "Excellent espresso and the almond croissant was delicious.",
+    "date": "2023-09-20"
+  },
+  {
+    "id": "r4",
+    "businessId": "2",
+    "userId": "u1",
+    "username": "FoodieFan",
+    "userAvatarUrl": "https://placehold.co/100x100/7F6651/EBD8C3?text=FF",
+    "rating": 5,
+    "text": "My go-to spot for a morning coffee. Staff is always friendly!",
+    "date": "2023-10-25"
+  },
+  {
+    "id": "r5",
+    "businessId": "3",
+    "userId": "u4",
+    "username": "SushiSnob",
+    "userAvatarUrl": "https://placehold.co/100x100/EBD8C3/7F6651?text=SS",
+    "rating": 5,
+    "text": "The omakase was an experience! Pricey but worth it for the quality.",
+    "date": "2023-08-05"
+  }
+] 
