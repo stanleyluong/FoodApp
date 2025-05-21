@@ -1,19 +1,18 @@
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
-// const YELP_API_KEY = process.env.YELP_API_KEY; // We will access it directly via process.env
 const NEXT_PUBLIC_YELP_API_URL = 'https://api.yelp.com/v3/businesses/search';
 
 export async function GET(request: NextRequest) {
   // Debugging logs
   console.log('[API /api/businesses] Handler called.');
-  console.log('[API /api/businesses] YELP_API_KEY defined? ', typeof process.env.YELP_API_KEY !== 'undefined');
-  console.log('[API /api/businesses] YELP_API_KEY empty? ', process.env.YELP_API_KEY === '');
+  console.log('[API /api/businesses] NEXT_PUBLIC_YELP_API_KEY defined? ', typeof process.env.NEXT_PUBLIC_YELP_API_KEY !== 'undefined');
+  console.log('[API /api/businesses] NEXT_PUBLIC_YELP_API_KEY empty? ', process.env.NEXT_PUBLIC_YELP_API_KEY === '');
   // IMPORTANT: Do NOT log the actual key value in production or shared logs.
   // For temporary, very controlled debugging, you could log a snippet or length:
-  // console.log('[API /api/businesses] YELP_API_KEY length (if defined): ', process.env.YELP_API_KEY?.length);
+  // console.log('[API /api/businesses] NEXT_PUBLIC_YELP_API_KEY length (if defined): ', process.env.NEXT_PUBLIC_YELP_API_KEY?.length);
 
-  if (!process.env.YELP_API_KEY) { // Directly use process.env here
+  if (!process.env.NEXT_PUBLIC_YELP_API_KEY) { // Directly use process.env here
     console.error('[API /api/businesses] Yelp API key is not configured or empty.');
     return NextResponse.json(
       { error: 'API key not configured. Please check server logs.' }, 
@@ -52,7 +51,7 @@ export async function GET(request: NextRequest) {
     console.log('[API /api/businesses] Attempting to fetch from Yelp API...');
     const response = await axios.get(NEXT_PUBLIC_YELP_API_URL, {
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`, // Use process.env directly
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_YELP_API_KEY}`, // Use process.env directly
       },
       params: params,
     });

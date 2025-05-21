@@ -1,20 +1,20 @@
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
-// const YELP_API_KEY = process.env.YELP_API_KEY; // Will use process.env.YELP_API_KEY directly
+// const NEXT_PUBLIC_YELP_API_KEY = process.env.NEXT_PUBLIC_YELP_API_KEY; // Will use process.env.NEXT_PUBLIC_YELP_API_KEY directly
 const YELP_API_URL_DETAIL_BASE = 'https://api.yelp.com/v3/businesses/';
 
 export async function GET(request: NextRequest) {
   console.log('[API /api/businesses/[id]] Handler called.');
-  console.log('[API /api/businesses/[id]] YELP_API_KEY defined? ', typeof process.env.YELP_API_KEY !== 'undefined');
-  console.log('[API /api/businesses/[id]] YELP_API_KEY empty? ', process.env.YELP_API_KEY === '');
+  console.log('[API /api/businesses/[id]] NEXT_PUBLIC_YELP_API_KEY defined? ', typeof process.env.NEXT_PUBLIC_YELP_API_KEY !== 'undefined');
+  console.log('[API /api/businesses/[id]] NEXT_PUBLIC_YELP_API_KEY empty? ', process.env.NEXT_PUBLIC_YELP_API_KEY === '');
 
   const url = new URL(request.url);
   const segments = url.pathname.split('/');
   const businessId = segments.length > 3 ? segments[segments.length - 1] : null;
   console.log(`[API /api/businesses/[id]] Parsed businessId: ${businessId}`);
 
-  if (!process.env.YELP_API_KEY) {
+  if (!process.env.NEXT_PUBLIC_YELP_API_KEY) {
     console.error('[API /api/businesses/[id]] Yelp API key is not configured or empty for detail view.');
     return NextResponse.json(
       { error: 'API key not configured. Please check server logs.' }, 
@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
     console.log('[API /api/businesses/[id]] Attempting to fetch details from Yelp API...');
     const response = await axios.get(YELP_BUSINESS_DETAIL_URL, {
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_YELP_API_KEY}`,
       },
     });
     

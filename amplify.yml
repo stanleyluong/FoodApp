@@ -15,8 +15,3 @@ frontend:
     paths:
       - .npm/**/*
       - .next/cache/**/*
-
-# 👇 This is the key section to make env vars available to API routes
-env:
-  variables:
-    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: $NEXT_PUBLIC_GOOGLE_MAPS_API_KEY 

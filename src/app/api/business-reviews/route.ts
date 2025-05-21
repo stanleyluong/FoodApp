@@ -1,18 +1,17 @@
 import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
-// const YELP_API_KEY = process.env.YELP_API_KEY; // Will use process.env.YELP_API_KEY directly
 const YELP_API_URL_BASE = 'https://api.yelp.com/v3/businesses';
 
 export async function GET(request: NextRequest) {
   console.log('[API /api/business-reviews] Handler called.');
-  console.log('[API /api/business-reviews] YELP_API_KEY defined? ', typeof process.env.YELP_API_KEY !== 'undefined');
-  console.log('[API /api/business-reviews] YELP_API_KEY empty? ', process.env.YELP_API_KEY === '');
+  console.log('[API /api/business-reviews] NEXT_PUBLIC_YELP_API_KEY defined? ', typeof process.env.NEXT_PUBLIC_YELP_API_KEY !== 'undefined');
+  console.log('[API /api/business-reviews] NEXT_PUBLIC_YELP_API_KEY empty? ', process.env.NEXT_PUBLIC_YELP_API_KEY === '');
 
   const businessId = request.nextUrl.searchParams.get('id');
   console.log(`[API /api/business-reviews] Parsed businessId from query: ${businessId}`);
 
-  if (!process.env.YELP_API_KEY) {
+  if (!process.env.NEXT_PUBLIC_YELP_API_KEY) {
     console.error('[API /api/business-reviews] Yelp API key is not configured or empty.');
     return NextResponse.json(
       { error: 'API key not configured. Please check server logs.' }, 
@@ -35,7 +34,7 @@ export async function GET(request: NextRequest) {
     console.log('[API /api/business-reviews] Attempting to fetch reviews from Yelp API...');
     const response = await axios.get(YELP_REVIEWS_URL, {
       headers: {
-        Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_YELP_API_KEY}`,
       },
       params: { limit: 5, sort_by: 'yelp_sort' } // Request up to 5 reviews, sorted by Yelp's default sort
     });
