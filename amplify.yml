@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - npm ci
     build:
       commands:
         - npm run build
@@ -13,10 +13,10 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - node_modules/**
+      - .npm/**/*
+      - .next/cache/**/*
 
 # 👇 This is the key section to make env vars available to API routes
 env:
   variables:
-    YELP_API_KEY: $YELP_API_KEY
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: $NEXT_PUBLIC_GOOGLE_MAPS_API_KEY 
